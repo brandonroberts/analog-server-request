@@ -12,7 +12,12 @@ export default defineConfig(({ mode }) => ({
   resolve: {
     mainFields: ['module'],
   },
-  plugins: [analog()],
+  plugins: [analog({
+    entryServer: 'server.ts',
+    nitro: {
+      renderer: '~~/dist/ssr/server.mjs'
+    }
+  })],
   test: {
     globals: true,
     environment: 'jsdom',
